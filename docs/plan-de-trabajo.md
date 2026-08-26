@@ -97,3 +97,25 @@ Agrega a la sección "Additional Constraints" la siguiente línea:
 
 ## 7. Creación de Especificaciones de forma iterativa
 
+### 7.1. Crear primera especificación (FR-01)
+
+Escribe en el chat de Copilot:
+
+/speckit.specify crear FR-01 - Entrada y Gestión de Texto: El sistema debe proveer un área de texto principal para ingresar o pegar texto libre. Debe incluir una acción (botón) explícita para vaciar rápidamente el contenido del área de trabajo. Respeta el diseño de la interfaz (layout) y las pautas de accesibilidad. Da estructura al layout de la página e implementa solo el MAIN CONTENT.
+
+Espera, revisa y luego →
+
+/speckit.plan
+
+Espera, revisa y luego →
+
+/speckit.tasks
+
+Espera, revisa y luego →
+
+/speckit.implement
+
+Espera, revisa y luego →
+
+Review Manual (Recomendada): Una vez que hayas verificado que la implementación cumple con la especificación y ha pasado todas las pruebas, edita el archivo spec.md y cambia manualmente Status: Draft a Status: Completed (o el estado que uses, como Review).
+
