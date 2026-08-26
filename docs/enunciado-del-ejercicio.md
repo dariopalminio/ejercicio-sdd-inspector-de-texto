@@ -23,13 +23,15 @@ Antes de comenzar, asegúrate de tener instalado:
 - **uv** (recomendado para instalar Specify CLI)
 - Un editor de código (recomendamos **VS Code**)
 - Un agente de IA compatible (GitHub Copilot, etc.)
-- git
+- El cliente git
+- Una cuenta de GitHub activa.
+- Una suscripción activa a GitHub Copilot en tu cuenta. Si no estás seguro de tenerla, tu administrador puede confirmarlo en la configuración de la organización de GitHub. Si no tienes suscripción, puedes registrarte en el plan gratuito de Copilot desde VS Code durante el proceso de configuración.
 
 ---
 
 ## Plan del Ejercicio Paso a Paso
 
-1. Lee el documento de especificación base `project-requirements.md`
+1. Lee el documento de especificación base
 2. Iniciación del proyecto
 3. Instalar Specify CLI
 4. Iniciar y Configurar el Proyecto

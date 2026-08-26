@@ -29,57 +29,57 @@ Este repositorio es el **ejercicio práctico** de Spec-Driven Development (SDD) 
 - Create React App (`react-scripts`)
 - Testing Library + Jest
 
-## Installation
+## Instalación
 
-After cloning the repository, install the dependencies:
+Luego de clonar el repositorio, instalá las dependencias:
 
 ```bash
-git clone <repository-url>
-cd ejercicio-inspector-de-texto
+git clone <url-del-repositorio>
+cd ejercicio-sdd-inspector-de-texto
 npm install
 ```
 
-Then start the app with `npm start`.
+Después iniciá la app con `npm start`.
 
-## Available Scripts
+## Scripts disponibles
 
-In the project directory, you can run:
+En el directorio del proyecto podés ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ejecuta la app en modo desarrollo.\
+Abrí [http://localhost:3000](http://localhost:3000) para verla en el navegador.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+La página se recarga cuando hacés cambios.\
+También vas a ver los errores de lint en la consola.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia el corredor de pruebas en modo interactivo (watch).\
+Consultá la sección sobre [ejecución de pruebas](https://facebook.github.io/create-react-app/docs/running-tests) para más información.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Compila la app para producción en la carpeta `build`.\
+Empaqueta React en modo producción y optimiza la compilación para obtener el mejor rendimiento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La compilación queda minificada y los nombres de archivo incluyen los hashes.\
+¡Tu app está lista para desplegarse!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Consultá la sección sobre [despliegue](https://facebook.github.io/create-react-app/docs/deployment) para más información.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Nota: esta es una operación sin retorno. Una vez que hacés `eject`, ¡no hay vuelta atrás!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si no estás conforme con la herramienta de compilación ni con las decisiones de configuración, podés ejecutar `eject` en cualquier momento. Este comando elimina del proyecto la única dependencia de compilación.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+En su lugar, copia todos los archivos de configuración y las dependencias transitivas (webpack, Babel, ESLint, etc.) directamente dentro de tu proyecto para que tengas control total sobre ellas. Todos los comandos excepto `eject` van a seguir funcionando, pero apuntarán a los scripts copiados para que puedas ajustarlos. A partir de ese punto, quedás por tu cuenta.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Nunca estás obligado a usar `eject`. El conjunto de funcionalidades incluido es adecuado para despliegues pequeños y medianos, y no deberías sentirte forzado a usar esta opción. De todos modos, entendemos que esta herramienta no sería útil si no pudieras personalizarla cuando lo necesites.
 
-## Learn More
+## Más información
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Podés aprender más en la [documentación de Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para aprender React, consultá la [documentación de React](https://reactjs.org/).
