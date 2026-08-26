@@ -32,6 +32,7 @@ src/
 	├── components/              # Demos reutilizables por componente
 	├── pages/                   # Páginas enrutables de cada demo
     │   └── ComponentNamePage.tsx # Página de demostración
+	├── hooks/                    # Custom hooks
 	├── App.tsx                  # Definición de rutas y layout base
 ```
 
