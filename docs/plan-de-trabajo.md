@@ -40,6 +40,25 @@ Una vez instalado Copilot, prueba estos comandos en el chat de Copilot:
 
 /help – Muestra los comandos disponibles y ayuda sobre cómo usar Copilot Chat.
 
+Agrega al prompt de sistem AGENTS.md lo siguiente:
+
+```
+## Gobernanza y Flujo de Trabajo de SDD
+
+- Este proyecto sigue estrictamente el Desarrollo Dirigido por Especificaciones (SDD) mediante GitHub Spec Kit.
+- Antes de sugerir implementaciones arquitectónicas o de código, revise `.specify/memory/constitution.md`.
+- Asegúrese de que el código cumpla estrictamente con las especificaciones vigentes ubicadas en `.specify/specs/`.
+```
+
+Agrega una sección de la estructura de directorios del código principal al prompt de sistema de AGENTS.md.
+
+```text
+src/
+	├── components/              # Demos reutilizables por componente
+	├── pages/                   # Páginas enrutables de cada demo
+    │   └── ComponentNamePage.tsx # Página de demostración
+	├── App.tsx                  # Definición de rutas y layout base
+```
 
 ## 4. Instalar Specify CLI
 
@@ -77,3 +96,4 @@ Agrega a la sección "Additional Constraints" la siguiente línea:
 
 
 ## 7. Creación de Especificaciones de forma iterativa
+

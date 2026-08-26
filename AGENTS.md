@@ -1,25 +1,41 @@
 # AGENTS.md
 
-## Project overview
+## Descripción general del proyecto
 
-This repository is a React + TypeScript single-page app for the "Inspector de Texto" exercise. The app analyzes text in-browser, tracks word/character/line limits, detects hidden Unicode characters, and lets users sanitize and copy clean text.
+Este repositorio es una aplicación de página única (SPA) en React + TypeScript para el ejercicio "Inspector de Texto". La app analiza texto en el navegador, controla límites de palabras/caracteres/líneas, detecta caracteres Unicode ocultos y permite desinfectar el texto y copiarlo ya limpio.
 
-Primary references:
+Referencias principales:
 - [README.md](README.md)
 - [docs/project-requirements.md](docs/project-requirements.md)
 - [docs/enunciado-del-ejercicio.md](docs/enunciado-del-ejercicio.md)
 - [docs/plan-de-trabajo.md](docs/plan-de-trabajo.md)
 
-## Stack and constraints
+## Stack y restricciones
 
 - React 19 + TypeScript
-- Create React App with `react-scripts` (the repo is currently in the default CRA starter state)
+- Create React App con `react-scripts` (el repositorio está actualmente en el estado inicial por defecto de CRA)
 - Testing Library + Jest
-- No backend or network dependency for text analysis; all processing must remain local in the browser
-- The project specification calls for a dark, sleek interface and mentions Tailwind CSS, but the repo is still a minimal CRA app until implementation begins
-- Keep behavior and UI aligned with the project spec, especially the accessibility and "sleek dark" requirements
+- Sin backend ni dependencia de red para el análisis de texto; todo el procesamiento debe permanecer local en el navegador
+- La especificación del proyecto pide una interfaz oscura y elegante y menciona Tailwind CSS, pero el repositorio sigue siendo una app CRA mínima hasta que comience la implementación
+- Mantener el comportamiento y la UI alineados con la especificación del proyecto, en especial los requisitos de accesibilidad y de "sleek dark"
 
-## Common commands
+## Gobernanza y Flujo de Trabajo de SDD
+
+- Este proyecto sigue estrictamente el Desarrollo Dirigido por Especificaciones (SDD) mediante GitHub Spec Kit.
+- Antes de sugerir implementaciones arquitectónicas o de código, revise `.specify/memory/constitution.md`.
+- Asegúrese de que el código cumpla estrictamente con las especificaciones vigentes ubicadas en `.specify/specs/`.
+
+## Estructura de directorios (Código principal)
+
+```text
+src/
+	├── components/              # Demos reutilizables por componente
+	├── pages/                   # Páginas enrutables de cada demo
+    │   └── ComponentNamePage.tsx # Página de demostración
+	├── App.tsx                  # Definición de rutas y layout base
+```
+
+## Comandos habituales
 
 ```bash
 npm install
@@ -28,35 +44,35 @@ npm test -- --watch=false
 npm run build
 ```
 
-## Working conventions
+## Convenciones de trabajo
 
-- Prefer small, focused React components and clear state ownership.
-- Keep text-processing logic in reusable helper functions or typed utilities instead of embedding it directly in UI components.
-- Use TypeScript types for state, props, and derived values.
-- Match the functional requirements in [docs/project-requirements.md](docs/project-requirements.md), not the default CRA starter content.
-- Preserve the browser-only, zero-data policy: avoid external APIs or server-side processing.
-- If implementing performance-sensitive logic, add a debounce of roughly 150 ms for heavy recalculations.
-- Keep UI feedback explicit: limit status, progress bar, hidden-character alerts, and sanitizer actions should be easy to understand at a glance.
-- Do not treat the current default CRA screen as the final product. The app should evolve toward the inspector functionality described in the docs.
+- Preferir componentes React pequeños y enfocados, con una propiedad clara de quién es dueño de cada estado.
+- Mantener la lógica de procesamiento de texto en funciones auxiliares reutilizables o utilidades tipadas, en lugar de incrustarla directamente en los componentes de UI.
+- Usar tipos de TypeScript para el estado, las props y los valores derivados.
+- Ajustarse a los requerimientos funcionales de [docs/project-requirements.md](docs/project-requirements.md), no al contenido inicial por defecto de CRA.
+- Preservar la política de solo navegador y cero datos: evitar APIs externas o procesamiento del lado del servidor.
+- Al implementar lógica sensible al rendimiento, agregar un debounce de aproximadamente 150 ms para los recálculos pesados.
+- Mantener explícita la retroalimentación de la UI: el estado del límite, la barra de progreso, las alertas de caracteres ocultos y las acciones de desinfección deben entenderse de un vistazo.
+- No tratar la pantalla por defecto actual de CRA como el producto final. La app debe evolucionar hacia la funcionalidad de inspector descrita en la documentación.
 
-## Expected implementation behaviors
+## Comportamientos esperados de la implementación
 
-- Input text is editable in a textarea-like field with a clear reset/empty action.
-- Live metrics: total words, characters, and lines.
-- A selector chooses whether the limit uses words, characters, or lines.
-- A visible checkbox allows excluding whitespace when counting characters.
-- A progress indicator and status text reflect whether the current value is within or above the configured max.
-- Hidden characters such as zero-width space, BOM, and ASCII control chars are detected continuously and counted.
-- The "Limpiar y Copiar" action removes hidden characters and copies the sanitized result to the clipboard.
+- El texto de entrada es editable en un campo tipo textarea, con una acción clara para vaciarlo/reiniciarlo.
+- Métricas en vivo: total de palabras, caracteres y líneas.
+- Un selector determina si el límite se aplica sobre palabras, caracteres o líneas.
+- Una casilla de verificación visible permite excluir los espacios en blanco al contar caracteres.
+- Un indicador de progreso y un texto de estado reflejan si el valor actual está dentro o por encima del máximo configurado.
+- Los caracteres ocultos, como el zero-width space, el BOM y los caracteres de control ASCII, se detectan de forma continua y se cuentan.
+- La acción "Limpiar y Copiar" elimina los caracteres ocultos y copia el resultado desinfectado al portapapeles.
 
-## Testing expectations
+## Expectativas de testing
 
-- Add or update tests for user-visible behavior, especially text metrics, limit logic, hidden-character detection, and sanitizer actions.
-- Prefer Testing Library queries and real DOM behavior over implementation-detail assertions.
-- Keep tests deterministic and fast. Avoid unnecessary network or browser-only assumptions.
+- Agregar o actualizar pruebas para el comportamiento visible por el usuario, especialmente las métricas de texto, la lógica de límites, la detección de caracteres ocultos y las acciones de desinfección.
+- Preferir las consultas de Testing Library y el comportamiento real del DOM antes que aserciones sobre detalles de implementación.
+- Mantener las pruebas deterministas y rápidas. Evitar supuestos innecesarios de red o específicos del navegador.
 
-## Before finishing work
+## Antes de dar por terminado el trabajo
 
-- Run the relevant tests and verify the app builds cleanly when the change affects core behavior.
-- If a UI change is added, make sure it remains consistent with the dark premium design described in the requirements.
-- Do not duplicate existing docs; link to the project docs instead of re-explaining them in detail.
+- Ejecutar las pruebas relevantes y verificar que la app compile sin errores cuando el cambio afecte el comportamiento central.
+- Si se agrega un cambio de UI, asegurarse de que siga siendo consistente con el diseño oscuro premium descrito en los requerimientos.
+- No duplicar la documentación existente; enlazar a los documentos del proyecto en lugar de volver a explicarlos en detalle.
