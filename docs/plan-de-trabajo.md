@@ -12,10 +12,10 @@ node --version && npm --version && uv --version && git --version && code --versi
 
 ### 2.2. Clonar repo
 
-Luego de clonar el repositorio, instalá las dependencias:
+Luego de clonar el repositorio (la rama de release/01-inicial), instalá las dependencias:
 
 ```bash
-git clone https://github.com/dariopalminio/ejercicio-sdd-inspector-de-texto.git
+git clone -b release/01-inicial https://github.com/dariopalminio/ejercicio-sdd-inspector-de-texto.git
 cd ejercicio-sdd-inspector-de-texto
 npm install
 ```
