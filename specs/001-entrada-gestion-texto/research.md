@@ -1,4 +1,4 @@
-# Phase 0 Research: Entrada y Gestión de Texto (FR-01)
+# Phase 0 Research: Entrada y Gestión de Texto (REQ-01)
 
 No quedaron marcadores `NEEDS CLARIFICATION` en el Technical Context del plan; esta fase documenta las
 decisiones técnicas concretas necesarias para diseñar el componente MAIN CONTENT.
@@ -7,10 +7,10 @@ decisiones técnicas concretas necesarias para diseñar el componente MAIN CONTE
 
 - **Decision**: Incorporar Tailwind CSS (con PostCSS/autoprefixer) al proyecto CRA existente, siguiendo la
   paleta oscura (`slate-900`/`slate-950` fondos, `emerald-400`/`emerald-500` acentos) descrita en
-  `docs/product-requirements.md` (NFR-04).
-- **Rationale**: NFR-01 y NFR-04 del producto exigen explícitamente Tailwind CSS y un tema oscuro premium.
+  `docs/product-requirements.md` (RNF-04).
+- **Rationale**: RNF-01 y RNF-04 del producto exigen explícitamente Tailwind CSS y un tema oscuro premium.
   Introducirlo desde esta primera especificación evita reescribir estilos ad hoc que luego haya que migrar.
-- **Alternatives considered**: CSS Modules / CSS plano (rechazado: no cumple el stack declarado en NFR-01);
+- **Alternatives considered**: CSS Modules / CSS plano (rechazado: no cumple el stack declarado en RNF-01);
   styled-components (rechazado: agrega una dependencia de runtime no requerida por la especificación).
 
 ## Gestión del estado del texto

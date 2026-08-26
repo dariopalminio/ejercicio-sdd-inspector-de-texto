@@ -31,7 +31,7 @@ Single frontend project (CRA). Source under `src/`, tests colocated with the cod
 **Purpose**: Project initialization needed before any user story can be implemented.
 
 - [X] T001 Install Tailwind CSS and its build tooling (`tailwindcss`, `postcss`, `autoprefixer`) as dev dependencies and generate `tailwind.config.js` / `postcss.config.js` at the repository root
-- [X] T002 Configure `tailwind.config.js` `content` globs for `src/**/*.{ts,tsx}` and define the dark premium palette tokens (`slate-900`/`slate-950` backgrounds, `emerald-400`/`emerald-500` accents) per `docs/product-requirements.md` NFR-04
+- [X] T002 Configure `tailwind.config.js` `content` globs for `src/**/*.{ts,tsx}` and define the dark premium palette tokens (`slate-900`/`slate-950` backgrounds, `emerald-400`/`emerald-500` accents) per `docs/product-requirements.md` RNF-04
 - [X] T003 [P] Add Tailwind `@tailwind base; @tailwind components; @tailwind utilities;` directives to `src/index.css`
 - [X] T004 [P] Create empty directories `src/components/text-inspector/` and `src/hooks/` for the feature's components and hook
 
@@ -114,7 +114,7 @@ de solapamientos.
 ### Implementation for User Story 3
 
 - [X] T015 [US3] Apply Tailwind layout/responsive classes to `MainContent` (`src/components/text-inspector/MainContent.tsx`) so the text area and clear action stack cleanly on narrow viewports and align side-by-side/below on wide viewports, per FR-007/SC-004
-- [X] T016 [US3] Apply dark premium Tailwind styling (palette from NFR-04) and finalize semantic markup (`<main>` landmark, associated `<label>`/`aria-label`) across `MainContent.tsx` and `TextInputArea.tsx` per FR-006/FR-008
+- [X] T016 [US3] Apply dark premium Tailwind styling (palette from RNF-04) and finalize semantic markup (`<main>` landmark, associated `<label>`/`aria-label`) across `MainContent.tsx` and `TextInputArea.tsx` per FR-006/FR-008
 - [X] T017 [US3] Ensure focus returns to `TextInputArea` after `ClearTextButton` is activated, in `src/components/text-inspector/MainContent.tsx`
 
 **Checkpoint**: All three user stories work together — the MAIN CONTENT region is fully functional,

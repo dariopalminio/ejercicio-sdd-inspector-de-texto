@@ -6,7 +6,7 @@
 
 **Status**: Completed
 
-**Input**: User description: "crear FR-01 - Entrada y Gestión de Texto: El sistema debe proveer un área de texto principal para ingresar o pegar texto libre. Debe incluir una acción (botón) explícita para vaciar rápidamente el contenido del área de trabajo. Respeta el diseño de la interfaz (layout) y las pautas de accesibilidad. Da estructura al layout de la página e implementa solo el MAIN CONTENT."
+**Input**: User description: "crear REQ-01 - Entrada y Gestión de Texto: El sistema debe proveer un área de texto principal para ingresar o pegar texto libre. Debe incluir una acción (botón) explícita para vaciar rápidamente el contenido del área de trabajo. Respeta el diseño de la interfaz (layout) y las pautas de accesibilidad. Da estructura al layout de la página e implementa solo el MAIN CONTENT."
 
 ## User Scenarios & Testing *(mandatory)*
 

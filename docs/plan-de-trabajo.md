@@ -97,7 +97,7 @@ Agrega a la sección "Additional Constraints" la siguiente línea:
 
 ## 7. Creación de Especificaciones de forma iterativa
 
-### 7.1. Crear primera especificación (FR-01)
+### 7.1. Crear primera especificación (REQ-01)
 
 Escribe en el chat de Copilot:
 
@@ -118,4 +118,11 @@ Espera, revisa y luego →
 Espera, revisa y luego →
 
 Review Manual (Recomendada): Una vez que hayas verificado que la implementación cumple con la especificación y ha pasado todas las pruebas, edita el archivo spec.md y cambia manualmente Status: Draft a Status: Completed (o el estado que uses, como Review).
+
+### 7.2. Iterar el mismo flujo para cada requerimiento funcional
+
+#### Iteración REQ-02
+
+/speckit.specify Crear REQ-02 - **Panel de Métricas Dinámicas:** El sistema debe calcular y mostrar en tiempo real las siguientes métricas del texto ingresado: Número total de palabras, Número total de caracteres, Número total de líneas. Se agrega el panel de métricas dentro del MAIN CONTENT con tres cuadros de resultados (uno por cada métrica). El cálculo de caracteres se hace incluyendo espacios en blanco. Agrega el TOPBAR / HEADER y el FOOTER de la página. En el TOPBAR / HEADER coloca del lado izquierdo el nombre de la aplicación. En el FOOTER coloca información de codificación del texto (UTF-8 por defecto).
+
 

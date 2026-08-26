@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Dark premium palette per docs/product-requirements.md NFR-04
+        // Dark premium palette per docs/product-requirements.md RNF-04
         surface: {
           950: '#020617', // slate-950
           900: '#0f172a', // slate-900
