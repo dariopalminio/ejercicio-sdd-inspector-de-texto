@@ -1,8 +1,8 @@
 # Plan del Ejercicio Paso a Paso
 
-## 1. Lee el documento de especificación base `project-requirements.md`
+## 1. Lee el documento de especificación base
 
-Lee el documento de especificación base `docs\project-requirements.md`
+Lee el documento de especificación base `docs/product-requirements.md`
 
 ## 2. Iniciación del proyecto
 
@@ -32,17 +32,68 @@ npm install
 8. El navegador te devolverá a VS Code.
 9. Abrir el panel de Chat de GitHub Copilot Chat (Ctrl+Alt+I en Windows/Linux o Cmd+Alt+I en macOS).
 
-Una vez instalado, prueba estos comandos en el chat de Copilot:
+## 3. Inicializar Copilot
+
+Una vez instalado Copilot, prueba estos comandos en el chat de Copilot:
 
 /init – Analiza tu codebase y crea instrucciones personalizadas para ayudar a la IA a generar código que coincida con tus prácticas de codificación.
 
 /help – Muestra los comandos disponibles y ayuda sobre cómo usar Copilot Chat.
 
+Agrega al prompt de sistem AGENTS.md lo siguiente:
 
-## 3. Instalar Specify CLI
+```
+## Gobernanza y Flujo de Trabajo de SDD
 
-## 4. Inicializar y Configurar Speckit
+- Este proyecto sigue estrictamente el Desarrollo Dirigido por Especificaciones (SDD) mediante GitHub Spec Kit.
+- Antes de sugerir implementaciones arquitectónicas o de código, revise `.specify/memory/constitution.md`.
+- Asegúrese de que el código cumpla estrictamente con las especificaciones vigentes ubicadas en `.specify/specs/`.
+```
 
-## 5. Configurar la "Constitución" del Proyecto
+Agrega una sección de la estructura de directorios del código principal al prompt de sistema de AGENTS.md.
 
-## 6. Creación de Especificaciones de forma iterativa
+```text
+src/
+	├── components/              # Demos reutilizables por componente
+	├── pages/                   # Páginas enrutables de cada demo
+    │   └── ComponentNamePage.tsx # Página de demostración
+	├── App.tsx                  # Definición de rutas y layout base
+```
+
+## 4. Instalar Specify CLI
+
+Instala globalmente:
+
+```bash
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+```
+
+Verify installation:
+
+```bash
+specify --version
+```
+
+## 5. Inicializar y Configurar Speckit
+
+Inicializar el proyecto:
+
+```bash
+specify init .
+```
+
+## 6. Configurar la "Constitución" del Proyecto
+
+En la interfaz de chat de tu agente de IA, escribe:
+
+```
+/speckit-constitution
+```
+
+Agrega a la sección "Additional Constraints" la siguiente línea:
+
+- Always read product requirements in `docs/product-requirements.md` as basic context.
+
+
+## 7. Creación de Especificaciones de forma iterativa
+
