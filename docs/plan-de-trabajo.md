@@ -1,8 +1,8 @@
 # Plan del Ejercicio Paso a Paso
 
-## 1. Lee el documento de especificación base `project-requirements.md`
+## 1. Lee el documento de especificación base
 
-Lee el documento de especificación base `docs\project-requirements.md`
+Lee el documento de especificación base `docs/product-requirements.md`
 
 ## 2. Iniciación del proyecto
 
@@ -43,8 +43,37 @@ Una vez instalado Copilot, prueba estos comandos en el chat de Copilot:
 
 ## 4. Instalar Specify CLI
 
+Instala globalmente:
+
+```bash
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+```
+
+Verify installation:
+
+```bash
+specify --version
+```
+
 ## 5. Inicializar y Configurar Speckit
 
+Inicializar el proyecto:
+
+```bash
+specify init .
+```
+
 ## 6. Configurar la "Constitución" del Proyecto
+
+En la interfaz de chat de tu agente de IA, escribe:
+
+```
+/speckit-constitution
+```
+
+Agrega a la sección "Additional Constraints" la siguiente línea:
+
+- Always read product requirements in `docs/product-requirements.md` as basic context.
+
 
 ## 7. Creación de Especificaciones de forma iterativa
