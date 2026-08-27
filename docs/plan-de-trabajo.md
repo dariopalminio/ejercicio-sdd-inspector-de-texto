@@ -137,11 +137,25 @@ Review Manual (Recomendada): Una vez que hayas verificado que la implementación
 
 /speckit.specify Inspección de Seguridad (Caracteres Ocultos): El sistema debe escanear continuamente el texto mediante expresiones regulares para detectar caracteres Unicode invisibles (ej. zero-width space \u200B, BOM \uFEFF, caracteres de control ASCII). Debe alertar visualmente al usuario indicando la cantidad exacta de vulnerabilidades o artefactos encontrados.
 
+**Review**:
+Para probarlo: Escribe el texto «El hombre no es lo que cree ser, es lo que oculta» que contenga texto invisible después de la palabra "oculta", he insertado una secuencia de 32 caracteres invisibles que codifican en binario la palabra "HOLA" (usando U+200B como 0 y U+200D como 1).
+
+El texto es:
+"El hombre no es lo que cree ser, es lo que oculta​​‍​​‍​​​​​‍​​‍​‍​‍​‍​​‍​​‍​‍​​​​​​​​​‍​. 
+Lo esencial es invisible a los ojos​​‍​​‍​​​​​‍​​‍​‍​‍​‍​​‍​​‍​‍​​​​​​​​​‍​."
+
 #### Iteración REQ-05: Sanitización y Exportación
 
 /speckit.specify Sanitización y Exportación: El sistema debe proveer un botón "Sanitizar y Copiar" que, al accionarse, remueva automáticamente todos los caracteres invisibles detectados en el texto y copie la versión limpia al portapapeles del sistema operativo, mostrando una confirmación temporal de éxito.
 
+#### Iteración REQ-06 - Visualizador tipo Overlay/Diff
 
+/speckit.specify Visualizador tipo Overlay/Diff: Un contador de \"5 vulnerabilidades\" no ayuda al usuario a saber dónde están. Se puede implementar una vista superpuesta, gatillada por un botón de mostrar problemas, que sustituya visualmente los caracteres invisibles por insignias legibles (ej. [ZWS], [BOM]) con fondo rojo/ámbar."
+
+**Review**:
+Para probarlo: Escribe el texto «El hombre no es lo que cree ser, es lo que oculta» que contenga texto invisible después de la palabra "oculta", he insertado una secuencia de 32 caracteres invisibles que codifican en binario la palabra "HOLA" (usando U+200B como 0 y U+200D como 1).
+
+El texto es:
 "El hombre no es lo que cree ser, es lo que oculta​​‍​​‍​​​​​‍​​‍​‍​‍​‍​​‍​​‍​‍​​​​​​​​​‍​. 
 Lo esencial es invisible a los ojos​​‍​​‍​​​​​‍​​‍​‍​‍​‍​​‍​​‍​‍​​​​​​​​​‍​."
 
