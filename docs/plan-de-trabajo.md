@@ -125,4 +125,10 @@ Review Manual (Recomendada): Una vez que hayas verificado que la implementación
 
 /speckit.specify Crear REQ-02 - **Panel de Métricas Dinámicas:** El sistema debe calcular y mostrar en tiempo real las siguientes métricas del texto ingresado: Número total de palabras, Número total de caracteres, Número total de líneas. Se agrega el panel de métricas dentro del MAIN CONTENT con tres cuadros de resultados (uno por cada métrica). El cálculo de caracteres se hace incluyendo espacios en blanco. Agrega el TOPBAR / HEADER y el FOOTER de la página. En el TOPBAR / HEADER coloca del lado izquierdo el nombre de la aplicación. En el FOOTER coloca información de codificación del texto (UTF-8 por defecto).
 
+#### Iteración REQ-03
+
+/speckit.specify Crear REQ-03 - Panel de **Control de Límites:** El sistema debe permitir al usuario establecer y gestionar límites para las métricas seleccionadas, asegurando que el contenido del área de texto cumpla con los umbrales configurados. El panel de Control de Límites debe contener:
+    1. **Selector de Tipo de Límite:** El sistema debe permitir al usuario elegir qué métrica utilizar para el control de límites mediante un selector radio buttons (Palabras, Caracteres o Líneas).
+    2. **Configuración de Límite Máximo:** El sistema debe permitir establecer un valor numérico máximo objetivo.
+    3. **Retroalimentación Visual de Límites:** El sistema debe mostrar una barra de progreso porcentual y un indicador de estado visual (colores y mensajes como "Dentro del límite" o "Por encima del máximo") que se actualicen en tiempo real según el umbral configurado.
 

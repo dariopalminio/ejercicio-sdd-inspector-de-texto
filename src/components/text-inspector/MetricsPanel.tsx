@@ -1,13 +1,13 @@
-import { useTextMetrics } from '../../hooks/useTextMetrics';
+import { TextMetrics } from '../../utils/textMetrics';
 import { MetricCard } from './MetricCard';
 
 interface MetricsPanelProps {
-  content: string;
+  metrics: TextMetrics;
 }
 
 // Panel de métricas dinámicas dentro de MAIN CONTENT (FR-010 a FR-014).
-export function MetricsPanel({ content }: MetricsPanelProps) {
-  const { words, characters, lines } = useTextMetrics(content);
+export function MetricsPanel({ metrics }: MetricsPanelProps) {
+  const { words, characters, lines } = metrics;
 
   return (
     <div className="flex flex-col gap-3 sm:flex-row">

@@ -92,7 +92,7 @@ Se debe mantener la estructura, proporciones y jerarquía visual de la maqueta b
 │  │                                                                         │  │  │   (SIN ESPACIOS)       │  │
 │  │                                                                         │  │  │                        │  │
 │  │                                                                         │  │  │ ─────────────────────  │  │
-│  │                                                                         │  │  │ Dentro del límite 2/500│  │
+│  │                                                                         │  │  │ Dentro del límite 34%  │  │
 │  │                                                                         │  │  └────────────────────────┘  │
 │  │                                                                         │  │                              │
 │  │                                                                         │  │  INSPECTOR DE SEGURIDAD     │

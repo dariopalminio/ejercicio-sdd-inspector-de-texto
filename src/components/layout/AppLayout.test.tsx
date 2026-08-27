@@ -39,4 +39,25 @@ describe('AppLayout', () => {
     expect(screen.getByRole('banner').textContent).toBe(headerTextBefore);
     expect(screen.getByRole('contentinfo').textContent).toBe(footerTextBefore);
   });
+
+  it('renders sidebar content when provided', () => {
+    render(
+      <AppLayout sidebar={<p>Contenido del sidebar</p>}>
+        <p>Contenido principal</p>
+      </AppLayout>
+    );
+
+    expect(screen.getByText('Contenido principal')).toBeInTheDocument();
+    expect(screen.getByText('Contenido del sidebar')).toBeInTheDocument();
+  });
+
+  it('renders correctly when sidebar is omitted', () => {
+    render(
+      <AppLayout>
+        <p>Solo contenido principal</p>
+      </AppLayout>
+    );
+
+    expect(screen.getByText('Solo contenido principal')).toBeInTheDocument();
+  });
 });
