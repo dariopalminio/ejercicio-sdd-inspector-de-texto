@@ -1,4 +1,4 @@
-import { detectHiddenCharacters } from './hiddenCharacters';
+import { detectHiddenCharacters, removeHiddenCharacters } from './hiddenCharacters';
 
 describe('detectHiddenCharacters', () => {
   it('returns safe/0 for an empty string', () => {
@@ -37,5 +37,26 @@ describe('detectHiddenCharacters', () => {
 
   it('sums mixed artifact types correctly', () => {
     expect(detectHiddenCharacters('\uFEFFa\u200Bb\u0001c')).toEqual({ count: 3, status: 'alert' });
+  });
+});
+
+describe('removeHiddenCharacters', () => {
+  it('strips zero-width spaces, BOM, and ASCII control characters', () => {
+    expect(removeHiddenCharacters('\uFEFFa\u200Bb\u0001c')).toBe('abc');
+  });
+
+  it('leaves tab, newline, and carriage return untouched', () => {
+    const input = 'linea uno\nlinea dos\ttab\rretorno';
+    expect(removeHiddenCharacters(input)).toBe(input);
+  });
+
+  it('returns the input unchanged when there are no artifacts', () => {
+    expect(removeHiddenCharacters('Hola mundo, este es un texto normal.')).toBe(
+      'Hola mundo, este es un texto normal.'
+    );
+  });
+
+  it('returns an empty string for empty input', () => {
+    expect(removeHiddenCharacters('')).toBe('');
   });
 });

@@ -16,3 +16,8 @@ export function detectHiddenCharacters(content: string): SecurityReport {
 
   return { count, status: count === 0 ? 'safe' : 'alert' };
 }
+
+// Remueve exactamente el mismo conjunto de artefactos detectado arriba (FR-036).
+export function removeHiddenCharacters(content: string): string {
+  return content.replace(HIDDEN_CHARACTERS_REGEX, '');
+}

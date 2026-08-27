@@ -10,7 +10,7 @@ export function SecurityPanel({ content }: SecurityPanelProps) {
   const isAlert = status === 'alert';
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 border-t border-slate-800 pt-6">
       <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-300">
         Inspector de Seguridad
       </h2>

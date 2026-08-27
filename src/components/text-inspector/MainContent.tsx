@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { TextInputArea } from './TextInputArea';
 import { ClearTextButton } from './ClearTextButton';
 import { MetricsPanel } from './MetricsPanel';
+import { SanitizeAndCopyButton } from './SanitizeAndCopyButton';
 import { TextMetrics } from '../../utils/textMetrics';
 
 interface MainContentProps {
@@ -24,7 +25,8 @@ export function MainContent({ content, onChange, onClear, metrics }: MainContent
     <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 text-slate-100 sm:p-6 md:p-8">
       <h1 className="text-lg font-semibold text-slate-100 sm:text-xl">Documento de entrada</h1>
       <TextInputArea ref={textAreaRef} value={content} onChange={onChange} />
-      <div className="flex justify-end">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <SanitizeAndCopyButton content={content} onSanitized={onChange} />
         <ClearTextButton onClear={handleClear} />
       </div>
       <MetricsPanel metrics={metrics} />
