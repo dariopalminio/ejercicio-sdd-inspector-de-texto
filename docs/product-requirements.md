@@ -18,7 +18,6 @@
     3. **Retroalimentación Visual de Límites:** El sistema debe mostrar una barra de progreso porcentual y un indicador de estado visual (colores y mensajes como "Dentro del límite" o "Por encima del máximo") que se actualicen en tiempo real según el umbral configurado.
 *   **REQ-04 - Inspección de Seguridad (Caracteres Ocultos):** El sistema debe escanear continuamente el texto mediante expresiones regulares para detectar caracteres Unicode invisibles (ej. zero-width space `\u200B`, BOM `\uFEFF`, caracteres de control ASCII). Debe alertar visualmente al usuario indicando la cantidad exacta de vulnerabilidades o artefactos encontrados.
 *   **REQ-05 - Sanitización y Exportación:** El sistema debe proveer un botón "Sanitizar y Copiar" que, al accionarse, remueva automáticamente todos los caracteres invisibles detectados en el texto y copie la versión limpia al portapapeles del sistema operativo, mostrando una confirmación temporal de éxito.
-*   **REQ-06 - Control de Exclusión de Espacios:** El sistema debe incluir una opción (checkbox) permanentemente visible para "Excluir espacios (Sin Espacios)" (espacios en blanco), permitiendo que la verificación por caracteres evalúe el texto sin considerar los espacios en blanco.
 
 ---
 
@@ -34,71 +33,36 @@
 
 ## Diseño de Layout (RNF-07)
 
-### Estructura conceptual
-
-El layout se puede expresar de forma simple como sigue:
-
-```
-┌───────────────────────────────────────────────────────────────────────────────┐
-│                              TOPBAR / HEADER                                  │
-├───────────────────────────────────────────────────────────────┬───────────────┤
-│                                                               │               │
-│                                                               │   SIDEBAR     │
-│                       MAIN CONTENT                            │               │
-│                                                               │ ┌───────────┐ │
-│  ┌─────────────────────────────────────────────────────────┐  │ │ Limits    │ │
-│  │                                                         │  │ └───────────┘ │
-│  │                    TEXT INPUT                           │  │               │
-│  │                                                         │  │ ┌───────────┐ │
-│  │                                                         │  │ │ Security  │ │
-│  │                                                         │  │ └───────────┘ │
-│  │                                           [Action]      │  │               │
-│  └─────────────────────────────────────────────────────────┘  │               │
-│                                                               │               │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐              │               │
-│  │   Words     │ │ Characters  │ │   Lines     │              │               │
-│  │      2      │ │     20      │ │      1      │              │               │
-│  └─────────────┘ └─────────────┘ └─────────────┘              │               │
-│                                                               │ ┌───────────┐ │
-│                                                               │ │Processing │ │
-│                                                               │ └───────────┘ │
-├───────────────────────────────────────────────────────────────┴───────────────┤
-│                                FOOTER                                         │
-└───────────────────────────────────────────────────────────────────────────────┘
-```
-
 ### Maquetado
 
 Se debe mantener la estructura, proporciones y jerarquía visual de la maqueta base siguiente:
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│  ┌──────┐  Secure Word Inspector  ┌────────────┐                                      ● Privacy Shield Active │
-│  │  🛡  │                         │ LOCAL ONLY │                                                              │
-│  └──────┘                         └────────────┘                                                              │
+┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│  ┌──────┐                                                                                                    │
+│  │  🛡  │  Inspector de Texto                                                                                │
+│  └──────┘                                                                                                    │
 ├───────────────────────────────────────────────────────────────────────────────┬──────────────────────────────┤
 │                                                                               │                              │
-│  INPUT DOCUMENT                                                🗑 Vaciar      │  CONTROL DE LÍMITES         │
+│  INPUT DOCUMENT (Documento de entrada)                                        │  CONTROL DE LÍMITES          │
 │                                                                               │                              │
 │  ┌─────────────────────────────────────────────────────────────────────────┐  │  ┌────────────────────────┐  │
-│  │                                                                         │  │  │ ┌────────┬───────────┐ │  │
-│  │  Texto introducido...|                                                  │  │  │ │PALABRAS│ CARACTERES│ │  │
-│  │                                                                         │  │  │ └────────┴───────────┘ │  │
+│  │                                                                         │  │  │  Tipo de límite:       │  │
+│  │  Texto introducido...                                                   │  │  │  ○ Palabras            │  │
+│  │                                                                         │  │  │  ○ Caracteres          │  │
+│  │                                                                         │  │  │  ○ Líneas              │  │
+│  │                                                                         │  │  │  Máx. Palabras:        │  │
 │  │                                                                         │  │  │ ┌──────────────┐       │  │
-│  │                                                                         │  │  │ │ Máx. Palabras│ 500   │       │
+│  │                                                                         │  │  │ │ 500          │       │  │
 │  │                                                                         │  │  │ └──────────────┘       │  │
-│  │                                                                         │  │  │                        │  │
-│  │                                                                         │  │  │ □ EXCLUIR ESPACIOS     │  │
-│  │                                                                         │  │  │   (SIN ESPACIOS)       │  │
-│  │                                                                         │  │  │                        │  │
 │  │                                                                         │  │  │ ─────────────────────  │  │
 │  │                                                                         │  │  │ Dentro del límite 34%  │  │
 │  │                                                                         │  │  └────────────────────────┘  │
 │  │                                                                         │  │                              │
-│  │                                                                         │  │  INSPECTOR DE SEGURIDAD     │
+│  │                                                                         │  │  INSPECTOR DE SEGURIDAD      │
 │  │                                                                         │  │                              │
 │  │                                                                         │  │  ┌────────────────────────┐  │
-│  │                                                                         │  │  │ 🛡 TEXTO SEGURO         │  │
+│  │                                                                         │  │  │ 🛡 TEXTO SEGURO        │  │
 │  │                                                                         │  │  ├────────────────────────┤  │
 │  │                                                                         │  │  │                        │  │
 │  │                                                                         │  │  │ No se han detectado    │  │
@@ -108,26 +72,16 @@ Se debe mantener la estructura, proporciones y jerarquía visual de la maqueta b
 │  │                                                                         │  │  └────────────────────────┘  │
 │  │                                                                         │  │                              │
 │  │                                                                         │  │                              │
-│  │                                                                         │  │                              │
-│  │                                                                         │  │                              │
-│  │                                                                         │  │                              │
-│  │                                                                         │  │  ┌────────────────────────┐  │
-│  │                                                                         │  │  │ VELOCIDAD DE PROC. 0.1ms│  │
-│  │                                                                         │  │  │ Buffer local encriptado│  │
-│  │                                                                         │  │  │ activo                 │  │
-│  │                                                                         │  │  └────────────────────────┘  │
-│  │                                                                         │  │                              │
-│  │                                             ┌──────────────────────┐    │  │                              │
-│  │                                             │  ▣ Limpiar y Copiar  │    │  │                              │
-│  │                                             └──────────────────────┘    │  │                              │
 │  └─────────────────────────────────────────────────────────────────────────┘  │                              │
-│                                                                               │                              │
+│  ┌──────────────────────┐                                 ┌───────────┐       │                              │
+│  │  Sanitizar y Copiar  │                                 │   Vaciar  │       │                              │
+│  └──────────────────────┘                                 └───────────┘       │                              │
 │  ┌───────────────────┐  ┌───────────────────┐  ┌───────────────────┐          │                              │
 │  │ PALABRAS          │  │ CARACTERES        │  │ LÍNEAS            │          │                              │
 │  │                   │  │                   │  │                   │          │                              │
 │  │ 2                 │  │ 20                │  │ 1                 │          │                              │
 │  └───────────────────┘  └───────────────────┘  └───────────────────┘          │                              │
 ├───────────────────────────────────────────────────────────────────────────────┴──────────────────────────────┤
-│  Codificación UTF-8       Cero Peticiones de Red                                  SYSTEM_READY // BUFFER_SAFE │
+│  Codificación UTF-8       Cero Peticiones de Red                                 SYSTEM_READY // BUFFER_SAFE │
 └──────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
