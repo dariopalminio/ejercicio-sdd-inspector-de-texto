@@ -54,6 +54,7 @@ Antes de comenzar, asegúrate de tener instalado:
 │  7. /speckit.tasks        →  Desglose en tareas (tasks.md)    │
 │  8. /speckit.analyze (opt)→  Informe de consistencia          │
 │  9. /speckit.implement    →  Implementación (código)          │
+│  10. <Review>             →  Revisión por humano              │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
