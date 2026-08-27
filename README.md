@@ -1,6 +1,8 @@
 # Inspector de Texto
 
-**Inspector de Texto** es una aplicación web de página única (SPA) para analizar texto en tiempo real: verifica el cumplimiento de límites configurables (palabras, caracteres o líneas) y detecta caracteres ocultos o invisibles (Unicode no imprimible) que suelen colarse al copiar y pegar contenido desde otras fuentes. Además, permite desinfectar el texto y copiarlo al portapapeles ya limpio.
+**Ejercicio de estudio de SDD con Github Spec-kit:**
+
+Inspector de Texto es una aplicación web de página única (SPA) para analizar texto en tiempo real: verifica el cumplimiento de límites configurables (palabras, caracteres o líneas) y detecta caracteres ocultos o invisibles (Unicode no imprimible) que suelen colarse al copiar y pegar contenido desde otras fuentes. Además, permite desinfectar el texto y copiarlo al portapapeles ya limpio.
 
 Todo el procesamiento ocurre **100% en el navegador**: no se envía el texto a ningún servidor.
 
@@ -9,7 +11,6 @@ Todo el procesamiento ocurre **100% en el navegador**: no se envía el texto a n
 - **Área de trabajo:** campo de texto para escribir o pegar contenido, con acción para vaciarlo rápidamente.
 - **Métricas en tiempo real:** total de palabras, caracteres y líneas.
 - **Control de límites:** selector de métrica (palabras / caracteres / líneas) y valor máximo objetivo.
-- **Exclusión de espacios:** opción para contar caracteres sin considerar espacios en blanco.
 - **Retroalimentación visual:** barra de progreso porcentual e indicador de estado ("Dentro del límite" / "Por encima del máximo").
 - **Inspección de seguridad:** escaneo continuo de caracteres invisibles (zero-width space `\u200B`, BOM `\uFEFF`, caracteres de control ASCII) con el conteo exacto de hallazgos.
 - **Limpiar y copiar:** remueve los caracteres invisibles detectados y copia la versión limpia al portapapeles.
