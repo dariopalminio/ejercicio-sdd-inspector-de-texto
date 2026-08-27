@@ -142,6 +142,10 @@ Review Manual (Recomendada): Una vez que hayas verificado que la implementación
 /speckit.specify Sanitización y Exportación: El sistema debe proveer un botón "Sanitizar y Copiar" que, al accionarse, remueva automáticamente todos los caracteres invisibles detectados en el texto y copie la versión limpia al portapapeles del sistema operativo, mostrando una confirmación temporal de éxito.
 
 
+"El hombre no es lo que cree ser, es lo que oculta​​‍​​‍​​​​​‍​​‍​‍​‍​‍​​‍​​‍​‍​​​​​​​​​‍​. 
+Lo esencial es invisible a los ojos​​‍​​‍​​​​​‍​​‍​‍​‍​‍​​‍​​‍​‍​​​​​​​​​‍​."
+
+
 ## 8. Ejercicio extra "Iniciar proyecto todo en uno"
 
 Puedes implementar todo de una vez. Pega todo el contenido de tu archivo de requisitos como entrada del comando /speckit.specify y el agente generará una especificación completa y estructurada para tu proyecto "Inspector de Texto".

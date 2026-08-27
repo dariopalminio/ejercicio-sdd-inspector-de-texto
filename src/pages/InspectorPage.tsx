@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTextDocument } from '../hooks/useTextDocument';
 import { useTextMetrics } from '../hooks/useTextMetrics';
 import { AppLayout } from '../components/layout/AppLayout';
@@ -9,6 +10,7 @@ import { SecurityPanel } from '../components/security/SecurityPanel';
 export function InspectorPage() {
   const { content, setContent, clear } = useTextDocument();
   const metrics = useTextMetrics(content);
+  const [problemViewVisible, setProblemViewVisible] = useState(false);
 
   return (
     <AppLayout
@@ -19,7 +21,14 @@ export function InspectorPage() {
         </Sidebar>
       }
     >
-      <MainContent content={content} onChange={setContent} onClear={clear} metrics={metrics} />
+      <MainContent
+        content={content}
+        onChange={setContent}
+        onClear={clear}
+        metrics={metrics}
+        problemViewVisible={problemViewVisible}
+        onToggleProblemView={() => setProblemViewVisible((visible) => !visible)}
+      />
     </AppLayout>
   );
 }

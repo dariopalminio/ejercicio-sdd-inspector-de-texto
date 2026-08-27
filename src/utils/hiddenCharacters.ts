@@ -5,10 +5,20 @@ export interface SecurityReport {
   status: SecurityStatus;
 }
 
+export type HiddenCharacterType = 'zws' | 'bom' | 'ctrl';
+
 // Alcance fijo confirmado en spec.md (Clarifications): zero-width space, BOM, y control ASCII
 // U+0000-U+001F excluyendo tab/newline/carriage-return.
 // eslint-disable-next-line no-control-regex
 const HIDDEN_CHARACTERS_REGEX = /[\u200B\uFEFF\u0000-\u0008\u000B\u000C\u000E-\u001F]/g;
+
+export function classifyHiddenCharacter(character: string): HiddenCharacterType | undefined {
+  if (character === '\u200B') return 'zws';
+  if (character === '\uFEFF') return 'bom';
+  // eslint-disable-next-line no-control-regex
+  if (/^[\u0000-\u0008\u000B\u000C\u000E-\u001F]$/.test(character)) return 'ctrl';
+  return undefined;
+}
 
 export function detectHiddenCharacters(content: string): SecurityReport {
   const matches = content.match(HIDDEN_CHARACTERS_REGEX);
