@@ -1,12 +1,12 @@
-# Feature Specification: Panel de Control de Límites (REQ-03)
+# Feature Specification: Panel de Control de Límites
 
 **Feature Branch**: `003-control-limites`
 
 **Created**: 2026-08-26
 
-**Status**: Draft
+**Status**: Completed
 
-**Input**: User description: "Crear REQ-03 - Panel de Control de Límites: El sistema debe permitir al usuario establecer y gestionar límites para las métricas seleccionadas, asegurando que el contenido del área de texto cumpla con los umbrales configurados. El panel de Control de Límites debe contener: 1. Selector de Tipo de Límite: El sistema debe permitir al usuario elegir qué métrica utilizar para el control de límites mediante un selector radio buttons (Palabras, Caracteres o Líneas). 2. Configuración de Límite Máximo: El sistema debe permitir establecer un valor numérico máximo objetivo. 3. Retroalimentación Visual de Límites: El sistema debe mostrar una barra de progreso porcentual y un indicador de estado visual (colores y mensajes como "Dentro del límite" o "Por encima del máximo") que se actualicen en tiempo real según el umbral configurado."
+**Input**: User description: "Panel de Control de Límites: El sistema debe permitir al usuario establecer y gestionar límites para las métricas seleccionadas, asegurando que el contenido del área de texto cumpla con los umbrales configurados. El panel de Control de Límites debe contener: 1. Selector de Tipo de Límite: El sistema debe permitir al usuario elegir qué métrica utilizar para el control de límites mediante un selector radio buttons (Palabras, Caracteres o Líneas). 2. Configuración de Límite Máximo: El sistema debe permitir establecer un valor numérico máximo objetivo. 3. Retroalimentación Visual de Límites: El sistema debe mostrar una barra de progreso porcentual y un indicador de estado visual (colores y mensajes como "Dentro del límite" o "Por encima del máximo") que se actualicen en tiempo real según el umbral configurado."
 
 ## Clarifications
 

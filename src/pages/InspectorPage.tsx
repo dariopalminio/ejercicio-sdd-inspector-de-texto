@@ -4,6 +4,7 @@ import { AppLayout } from '../components/layout/AppLayout';
 import { Sidebar } from '../components/layout/Sidebar';
 import { MainContent } from '../components/text-inspector/MainContent';
 import { LimitsPanel } from '../components/limits/LimitsPanel';
+import { SecurityPanel } from '../components/security/SecurityPanel';
 
 export function InspectorPage() {
   const { content, setContent, clear } = useTextDocument();
@@ -14,6 +15,7 @@ export function InspectorPage() {
       sidebar={
         <Sidebar>
           <LimitsPanel metrics={metrics} />
+          <SecurityPanel content={content} />
         </Sidebar>
       }
     >

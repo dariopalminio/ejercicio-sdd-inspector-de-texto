@@ -16,9 +16,9 @@
     1. **Selector de Tipo de Límite:** El sistema debe permitir al usuario elegir qué métrica utilizar para el control de límites mediante un selector (Palabras, Caracteres o Líneas).
     2. **Configuración de Límite Máximo:** El sistema debe permitir establecer un valor numérico máximo objetivo.
     3. **Retroalimentación Visual de Límites:** El sistema debe mostrar una barra de progreso porcentual y un indicador de estado visual (colores y mensajes como "Dentro del límite" o "Por encima del máximo") que se actualicen en tiempo real según el umbral configurado.
-*   **REQ-04 - Control de Exclusión de Espacios:** El sistema debe incluir una opción (checkbox) permanentemente visible para "Excluir espacios (Sin Espacios)" (espacios en blanco), permitiendo que la verificación por caracteres evalúe el texto sin considerar los espacios en blanco.
-*   **REQ-05 - Inspección de Seguridad (Caracteres Ocultos):** El sistema debe escanear continuamente el texto mediante expresiones regulares para detectar caracteres Unicode invisibles (ej. zero-width space `\u200B`, BOM `\uFEFF`, caracteres de control ASCII). Debe alertar visualmente al usuario indicando la cantidad exacta de vulnerabilidades o artefactos encontrados.
-*   **REQ-06 - Sanitización y Exportación:** El sistema debe proveer un botón "Sanitizar y Copiar" que, al accionarse, remueva automáticamente todos los caracteres invisibles detectados en el texto y copie la versión limpia al portapapeles del sistema operativo, mostrando una confirmación temporal de éxito.
+*   **REQ-04 - Inspección de Seguridad (Caracteres Ocultos):** El sistema debe escanear continuamente el texto mediante expresiones regulares para detectar caracteres Unicode invisibles (ej. zero-width space `\u200B`, BOM `\uFEFF`, caracteres de control ASCII). Debe alertar visualmente al usuario indicando la cantidad exacta de vulnerabilidades o artefactos encontrados.
+*   **REQ-05 - Sanitización y Exportación:** El sistema debe proveer un botón "Sanitizar y Copiar" que, al accionarse, remueva automáticamente todos los caracteres invisibles detectados en el texto y copie la versión limpia al portapapeles del sistema operativo, mostrando una confirmación temporal de éxito.
+*   **REQ-06 - Control de Exclusión de Espacios:** El sistema debe incluir una opción (checkbox) permanentemente visible para "Excluir espacios (Sin Espacios)" (espacios en blanco), permitiendo que la verificación por caracteres evalúe el texto sin considerar los espacios en blanco.
 
 ---
 

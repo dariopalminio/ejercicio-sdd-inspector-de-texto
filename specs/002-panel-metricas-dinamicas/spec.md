@@ -1,4 +1,4 @@
-# Feature Specification: Panel de Métricas Dinámicas (REQ-02)
+# Feature Specification: Panel de Métricas Dinámicas
 
 **Feature Branch**: `002-panel-metricas-dinamicas`
 
@@ -6,7 +6,7 @@
 
 **Status**: Completed
 
-**Input**: User description: "Crear REQ-02 - Panel de Métricas Dinámicas: El sistema debe calcular y mostrar en tiempo real las siguientes métricas del texto ingresado: Número total de palabras, Número total de caracteres, Número total de líneas. Se agrega el panel de métricas dentro del MAIN CONTENT con tres cuadros de resultados (uno por cada métrica). El cálculo de caracteres se hace incluyendo espacios en blanco. Agrega el TOPBAR / HEADER y el FOOTER de la página. En el TOPBAR / HEADER coloca del lado izquierdo el nombre de la aplicación. En el FOOTER coloca información de codificación del texto (UTF-8 por defecto)."
+**Input**: User description: "Panel de Métricas Dinámicas: El sistema debe calcular y mostrar en tiempo real las siguientes métricas del texto ingresado: Número total de palabras, Número total de caracteres, Número total de líneas. Se agrega el panel de métricas dentro del MAIN CONTENT con tres cuadros de resultados (uno por cada métrica). El cálculo de caracteres se hace incluyendo espacios en blanco. Agrega el TOPBAR / HEADER y el FOOTER de la página. En el TOPBAR / HEADER coloca del lado izquierdo el nombre de la aplicación. En el FOOTER coloca información de codificación del texto (UTF-8 por defecto)."
 
 ## Clarifications
 
