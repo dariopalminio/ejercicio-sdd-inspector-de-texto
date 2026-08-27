@@ -69,16 +69,6 @@ La compilación queda minificada y los nombres de archivo incluyen los hashes.\
 
 Consultá la sección sobre [despliegue](https://facebook.github.io/create-react-app/docs/deployment) para más información.
 
-### `npm run eject`
-
-**Nota: esta es una operación sin retorno. Una vez que hacés `eject`, ¡no hay vuelta atrás!**
-
-Si no estás conforme con la herramienta de compilación ni con las decisiones de configuración, podés ejecutar `eject` en cualquier momento. Este comando elimina del proyecto la única dependencia de compilación.
-
-En su lugar, copia todos los archivos de configuración y las dependencias transitivas (webpack, Babel, ESLint, etc.) directamente dentro de tu proyecto para que tengas control total sobre ellas. Todos los comandos excepto `eject` van a seguir funcionando, pero apuntarán a los scripts copiados para que puedas ajustarlos. A partir de ese punto, quedás por tu cuenta.
-
-Nunca estás obligado a usar `eject`. El conjunto de funcionalidades incluido es adecuado para despliegues pequeños y medianos, y no deberías sentirte forzado a usar esta opción. De todos modos, entendemos que esta herramienta no sería útil si no pudieras personalizarla cuando lo necesites.
-
 ## Más información
 
 Podés aprender más en la [documentación de Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
