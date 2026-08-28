@@ -8,7 +8,7 @@ Sync Impact Report
 -->
 
 # Inspector de Texto Constitution
-
+<!-- modificar -->
 ## Core Principles
 
 ### I. Privacy by Default
