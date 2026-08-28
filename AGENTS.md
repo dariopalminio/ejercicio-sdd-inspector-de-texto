@@ -7,8 +7,6 @@ Este repositorio es una aplicación de página única (SPA) en React + TypeScrip
 Referencias principales:
 - [README.md](README.md)
 - [docs/project-requirements.md](docs/project-requirements.md)
-- [docs/enunciado-del-ejercicio.md](docs/enunciado-del-ejercicio.md)
-- [docs/plan-de-trabajo.md](docs/plan-de-trabajo.md)
 
 ## Stack y restricciones
 
