@@ -8,83 +8,91 @@ Sync Impact Report
 -->
 
 # Inspector de Texto Constitution
-<!-- modificar -->
-## Core Principles
 
-### I. Privacy by Default
-All text inspection and sanitization logic MUST run locally in the browser. No external APIs,
-telemetry, or server-side processing are allowed for analysis, counting, or hidden-character
-detection. This preserves user trust and keeps the app compliant with the zero-data requirement of
-this project.
+## 1. Arquitectura y stack
 
-### II. User-Visible Safety and Clarity
-Every feature MUST present clear, immediate feedback on status and risk. Limit indicators, warning
-counts, and sanitizer actions MUST be explicit enough that a user can understand whether content is
-within tolerance or contains suspicious hidden characters without guesswork. Clear UX is part of
-functional correctness.
+- La aplicación es una SPA de una sola pantalla ejecutada en el navegador.
+- La interfaz está construida con React 19, TypeScript estricto y componentes funcionales con Hooks.
+- El proyecto utiliza Create React App mediante `react-scripts`.
+- Tailwind CSS 3 se utiliza para el estilo visual mediante clases utilitarias y tokens locales como
+  `surface` y `accent`.
+- No se utiliza backend ni enrutador externo. El estado del documento y de la interfaz vive en React.
+- La lógica de análisis se mantiene en utilidades TypeScript reutilizables, separada de la presentación.
 
-### III. Test-First Verification
-Behavioral changes MUST be driven by tests that exercise real user-visible outcomes: metrics, limit
-logic, hidden-character detection, and sanitization actions. The red-green-refactor cycle is required
-for any feature or bug fix; no production change is considered complete without passing relevant
-verification.
+## 2. Privacidad y procesamiento local
 
-### IV. Accessibility and Inclusive Design
-The interface MUST prioritize readable contrast, semantic controls, and understandable state signals.
-Keyboard and screen-reader accessible patterns are required where practical, and visual status
-indicators MUST remain legible without relying on color alone. The app must remain usable for a wide
-range of users and devices.
+- Todo el análisis del texto se ejecuta localmente en el navegador.
+- No se envía el contenido a servicios externos ni se añade telemetría.
+- Las métricas se calculan con `calculateTextMetrics` y el reporte de seguridad con
+  `detectHiddenCharacters`.
+- La sanitización usa `removeHiddenCharacters` y solo interactúa con el sistema operativo al copiar mediante
+  `navigator.clipboard.writeText`.
+- La detección y la sanitización comparten el mismo alcance: espacio de ancho cero (`U+200B`), BOM
+  (`U+FEFF`) y controles ASCII `U+0000–U+001F`, excepto tabulación, salto de línea y retorno de carro.
 
-### V. Simplicity and Maintainability
-The implementation MUST favor small, focused components and reusable text-analysis helpers over ad
-hoc logic embedded in UI code. Complex behavior must be decomposed into typed utilities, with clear
-ownership and minimal duplication. Simplicity reduces defect risk and keeps future changes aligned
-with the specification.
+## 3. Estructura de la interfaz
 
-## Additional Constraints
+La composición actual se organiza de la siguiente manera:
 
-- Always read product requirements in `docs/product-requirements.md` as basic context.
-- The app MUST remain a browser-only SPA built with React and TypeScript.
-- The project MUST continue to honor the requirements for a dark premium interface, responsive
-  layout, and accessibility-focused visual feedback.
-- Text-processing logic MUST be deterministic and local; hidden-character detection and cleanup MUST
-  be based on explicit Unicode control patterns rather than opaque third-party services.
-- Performance-sensitive operations MUST use a debounce of roughly 150 ms for repeated calculations
-  triggered by input or paste events.
-- The default CRA scaffold MUST not be treated as the final product; implementation work MUST advance
-  toward the "Inspector de Texto" specification.
+```text
+App
+└── InspectorPage
+    └── AppLayout
+        ├── Topbar
+        ├── MainContent
+        │   ├── TextInputArea
+        │   ├── ProblemOverlay (cuando está visible)
+        │   ├── SanitizeAndCopyButton
+        │   ├── botón Mostrar/Ocultar problemas
+        │   ├── ClearTextButton
+        │   └── MetricsPanel
+        ├── Sidebar
+        │   ├── LimitsPanel
+        │   └── SecurityPanel
+        └── Footer
+```
 
-## Development Workflow
+- `MainContent` contiene el área editable y las acciones principales.
+- `Sidebar` ocupa todo el ancho disponible en pantallas pequeñas y se presenta como una columna lateral en
+  pantallas medianas o grandes.
+- `Topbar` muestra el nombre `Inspector de Texto` y `Footer` cierra el layout común.
+- La interfaz usa una estética oscura basada principalmente en `surface-900` y `surface-950`, con acentos
+  verdes y estados de alerta ámbar o rojo.
 
-- Requirements and implementation decisions MUST be traceable to the project specification and docs in
-  the repository.
-- Changes that affect metrics, limit checks, or hidden-character behavior MUST include or update tests
-  covering the affected user flow.
-- The app MUST be validated with the relevant test command and, when behavior changes affect the
-  product surface, a clean build check before completion.
-- Unclear or ambiguous product requirements MUST be resolved against the documented specification before
-  implementation proceeds.
+## 4. Rendimiento y estado
 
-## Governance
+- El documento editable se actualiza de inmediato para mantener una edición fluida.
+- Las operaciones derivadas que actualmente usan debounce son el cálculo de métricas y el reporte de seguridad.
+- El overlay se deriva del contenido recibido y no mantiene una copia editable ni modifica el documento.
+- Los estados transitorios, como la visibilidad del overlay y el resultado de la copia, no se persisten.
 
-This Constitution governs all work on the Inspector de Texto exercise. It supersedes ad hoc
-interpretation of the project scope and requires alignment with the requirement documents before any
-feature is considered complete.
+## 5. Accesibilidad
 
-Amendments MUST be documented as a clearly versioned change in the constitution, with a summary of the
-rationale, affected principles or sections, and the amendment date. All significant changes MUST be
-reviewed against the project specification to confirm they remain consistent with scope, privacy, and
-accessibility requirements.
+- El área de texto tiene el nombre accesible `Documento de entrada`.
+- Las acciones se implementan como botones nativos y permanecen disponibles mediante teclado.
+- El botón del overlay comunica si la vista está activa u oculta mediante texto y `aria-pressed`.
+- Los estados de seguridad, límites y sanitización incluyen texto explícito y no dependen exclusivamente del color.
+- La capa visual no captura foco ni eventos de puntero, para no interferir con la edición.
 
-Versioning follows semantic versioning:
-- MAJOR: backwards-incompatible governance or principle changes
-- MINOR: new principle or materially expanded guidance
-- PATCH: wording, clarification, or non-semantic refinements
+## 6. Calidad y validación
 
-Compliance review expectations:
-- Every change that affects product behavior MUST confirm alignment with the spec and relevant tests.
-- Every UI change MUST remain consistent with the dark premium design and accessibility requirements.
-- The constitution and implementation MUST stay in sync; unresolved conflicts are resolved in favor of
-  the project specification and the governing principle of privacy by default.
+- La lógica pura de métricas, límites, detección, sanitización y segmentación se prueba con Jest.
+- Los componentes se validan con React Testing Library y consultas orientadas al comportamiento visible.
+- Antes de considerar terminado un cambio funcional se ejecutan:
 
-**Version**: 1.0.0 | **Ratified**: 2026-08-26 | **Last Amended**: 2026-08-26
+```powershell
+$env:CI = 'true'
+npm test -- --watch=false
+npm run build
+```
+
+- Los cambios deben mantener alineados la implementación, las especificaciones de `specs/` y las pruebas
+  relevantes.
+
+## 7. Restricciones de mantenimiento
+
+- Preferir componentes pequeños con una responsabilidad clara.
+- Reutilizar las utilidades existentes en lugar de duplicar expresiones regulares o reglas de conteo.
+- Mantener el alcance de detección explícito y determinista.
+- No introducir dependencias de UI, servicios externos o procesamiento en servidor sin actualizar primero la
+  especificación y la constitución gobernante.
