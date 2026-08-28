@@ -53,7 +53,7 @@ Como analista de contenido, quiero disponer de una interfaz oscura de alto contr
 
 ## 📦 Feature 2: Métricas Dinámicas y Control de Límites
 
-**Rama de desarrollo sugerida: 002-metrics-and-limits**
+**Rama de desarrollo sugerida:** 002-metrics-and-limits
 
 **Historia de Usuario**: Como redactor sujeto a restricciones de entrega,
  quiero ver el conteo de palabras, caracteres y líneas en tiempo real y configurar umbrales de alerta personalizados,
