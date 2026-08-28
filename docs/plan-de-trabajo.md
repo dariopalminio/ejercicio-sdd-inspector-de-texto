@@ -92,10 +92,15 @@ En la interfaz de chat de tu agente de IA, escribe:
 
 Agrega a la sección "Additional Constraints" la siguiente línea:
 
+```
 - Always read product requirements in `docs/product-requirements.md` as basic context.
+```
 
+o directamente pega el contenido del archivo: `docs\plan-incremental\constitution-example.md`
 
 ## 7. Creación de Especificaciones de forma iterativa
+
+Ejecutar `docs\plan-incremental\plan-de-desarrollo-incremental.md` o el siguiente plan:
 
 ### 7.1. Crear primera especificación (REQ-01)
 

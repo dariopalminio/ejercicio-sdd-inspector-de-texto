@@ -1,13 +1,8 @@
-<!--
-Sync Impact Report
-- Version change: none -> 1.0.0
-- Modified principles: none (new constitution scaffold)
-- Added sections: Core Principles, Additional Constraints, Development Workflow, Governance
-- Removed sections: none
-- Follow-up TODOs: none
--->
+# Constitución de ejemplo: Inspector de Texto
 
-# Inspector de Texto Constitution
+Este documento resume las reglas técnicas y de producto que se reflejan en la implementación actual de
+**Inspector de Texto**. Es un documento de referencia en Markdown; la constitución gobernante del proyecto es
+[`/.specify/memory/constitution.md`](../../.specify/memory/constitution.md).
 
 ## 1. Arquitectura y stack
 
