@@ -8,15 +8,31 @@ Lee el documento de especificación base `docs/product-requirements.md`
 
 ### 2.1. Verificar dependencias
 
-node --version && npm --version && uv --version && git --version && code --version
-
-### 2.2. Clonar repo
-
-Luego de clonar el repositorio (la rama de release/01-inicial), instalá las dependencias:
+Instalar y verificar dependencias:
 
 ```bash
-git clone -b release/01-inicial https://github.com/dariopalminio/ejercicio-sdd-inspector-de-texto.git
-cd ejercicio-sdd-inspector-de-texto
+node --version && npm --version && uv --version && git --version && code --version
+```
+
+### 2.2. Crear proyecto
+
+Puedes crear el proyecto de una de dos formas:
+
+#### 2.2.1. Opción 1: Crear proyecto React
+
+```bash
+npx create-react-app proyecto-ejercicio --template typescript 
+cd proyecto-ejercicio
+code .
+```
+
+#### 2.2.2. Opción 2: Clonar repo con proyecto base
+
+Clonar el repositorio (la rama de release/01-inicial):
+
+```bash
+git clone -b release/01-inicial https://github.com/dariopalminio/ejercicio-sdd-inspector-de-texto.git proyecto-ejercicio
+cd proyecto-ejercicio
 npm install
 ```
 
@@ -36,10 +52,11 @@ npm install
 
 Una vez instalado Copilot, prueba estos comandos en el chat de Copilot:
 
+```
 /init – Analiza tu codebase y crea instrucciones personalizadas para ayudar a la IA a generar código que coincida con tus prácticas de codificación.
 
 /help – Muestra los comandos disponibles y ayuda sobre cómo usar Copilot Chat.
-
+```
 Agrega al prompt de sistem AGENTS.md lo siguiente:
 
 ```
